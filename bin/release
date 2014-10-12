@@ -4,7 +4,7 @@ require 'yaml'
 
 payload = {
   'default_process_types' => {
-    'web' => './start-the-app'
+    'web' => '$HOME/start-the-app'
   }
 }.to_yaml
 
