@@ -18,6 +18,11 @@ def compile
 	script_path = File.join(@build_path, "start.sh")
 	File.open(script_path, 'w') { |f| f.write(script) }
 	File.chmod(0555, script_path)
+	
+	puts "Generating Procfile"
+	script = "web: start.sh\n"
+	script_path = File.join(@build_path, "Procfile")
+	File.open(script_path, 'w') { |f| f.write(script) }
 end
 
 compile
