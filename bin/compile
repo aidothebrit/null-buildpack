@@ -5,7 +5,9 @@ $stdout.sync = true
 @build_path = ARGV[0]
 @cache_path = ARGV[1]
 
-def compile
+MONO_HOME = 'vendor/mono'.freeze
+
+def generate_start_script
 	puts "Generating start.sh"
 
 	script = "#!/usr/bin/env bash"
@@ -18,9 +20,28 @@ def compile
 	script_path = File.join(@build_path, "start-the-app")
 	File.open(script_path, 'w') { |f| f.write(script) }
 	File.chmod(0555, script_path)
-	
 end
 
-compile
+def install_mono
+    download("3.4.0_full", "https://ci-labs-buildpack-downloads.s3.amazonaws.com/mono/lucid/x86_64") { |file| expand file }
+end
+
+def expand(file)
+	print "Installing Mono"
+	system "rm -rf #{stage_time_absolute_path(MONO_HOME)}"
+	system "mkdir -p #{stage_time_absolute_path(MONO_HOME)}"
+	system "tar xzf #{file.path} -C #{stage_time_absolute_path(MONO_HOME)} --strip 1 2>&1"
+end
+
+def install_certs
+end
+
+def stage_time_absolute_path(path)
+  File.join @build_path, path
+end
+
+install_mono
+install_certs
+generate_start_script
 
 exit 0
