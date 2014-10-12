@@ -2,12 +2,8 @@
 
 $stdout.sync = true
 
-build_path = ARGV[0]
-cache_path = ARGV[1]
-
-compile
-
-private
+@build_path = ARGV[0]
+@cache_path = ARGV[1]
 
 def compile
 	puts "Generating start.sh"
