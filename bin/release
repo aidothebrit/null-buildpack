@@ -7,7 +7,7 @@ payload = {
 	 'RACK_ENV' => 'PRODUCTION'
   },
   'default_process_types' => {
-	  'web' => 'start.sh'
+	  'web' => 'sh start.sh'
   }
 }.to_yaml
 
