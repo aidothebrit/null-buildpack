@@ -19,10 +19,6 @@ def compile
 	File.open(script_path, 'w') { |f| f.write(script) }
 	File.chmod(0555, script_path)
 	
-#	puts "Generating Procfile"
-#	script = "web: start-the-app\n"
-#	script_path = File.join(@build_path, "Procfile")
-#	File.open(script_path, 'w') { |f| f.write(script) }
 end
 
 compile
