@@ -3,8 +3,9 @@
 require 'yaml'
 
 payload = {
-  'addons' => [],
-  'default_process_types' => {}
+  'default_process_types' => {
+    'web' => './start-the-app'
+  }
 }.to_yaml
 
 puts payload
