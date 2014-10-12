@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'fileutils'
-
 build_dir = ARGV[0]
 
 script = "#!/usr/bin/env bash"
