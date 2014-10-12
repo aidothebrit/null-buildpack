@@ -15,12 +15,12 @@ def compile
 	script = [script, "\n", "  sleep 1"].join()
 	script = [script, "\n", "done"].join()
 
-	script_path = File.join(@build_path, "start.sh")
+	script_path = File.join(@build_path, "start-the-app.sh")
 	File.open(script_path, 'w') { |f| f.write(script) }
 	File.chmod(0555, script_path)
 	
 	puts "Generating Procfile"
-	script = "web: start.sh\n"
+	script = "web: sh start-the-app.sh\n"
 	script_path = File.join(@build_path, "Procfile")
 	File.open(script_path, 'w') { |f| f.write(script) }
 end
