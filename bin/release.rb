@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require yaml
+require 'yaml'
 
 payload = {
   'config_vars' => {
@@ -10,4 +10,6 @@ payload = {
 	  'web' => 'start.sh'
   }
 }.to_yaml
+
+puts payload
 
