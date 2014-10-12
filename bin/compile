@@ -15,7 +15,9 @@ def compile
 	script = [script, "\n", "  sleep 1"].join()
 	script = [script, "\n", "done"].join()
 
-	script_path = File.join(build_path, "start.sh")
+	script_path = File.join(@build_path, "start.sh")
 	File.open(script_path, 'w') { |f| f.write(script) }
 	File.chmod(0555, script_path)
 end
+
+compile
