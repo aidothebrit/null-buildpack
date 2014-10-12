@@ -3,12 +3,8 @@
 require 'yaml'
 
 payload = {
-  'config_vars' => {
-	 'RACK_ENV' => 'PRODUCTION'
-  },
-  'default_process_types' => {
-	  'web' => 'sh start.sh'
-  }
+  'addons' => [],
+  'default_process_types' => {}
 }.to_yaml
 
 puts payload
